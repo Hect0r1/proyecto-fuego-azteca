@@ -6,4 +6,4 @@ La transformación digital ha emergido como un imperativo estratégico para orga
 
 ### Propuesta de solución
 
-Dashboard a través de una aplicación web con los datos generados por Amazon ya que nos comenta el socio formador que no les da tiempo de leer todos los datos generados por esta plataforma, por lo tanto, con un dashboard se mostrarían los datos de manera más resumida y agradable de visualizar por la utilización de gráficas.
+Realizar un dashboard a través de una aplicación web con los datos generados por Amazon ya que nos comenta el socio formador que no les da tiempo de leer todos los datos generados por esta plataforma, por lo tanto, con un dashboard se mostrarían los datos de manera más resumida y agradable de visualizar por la utilización de gráficas.
