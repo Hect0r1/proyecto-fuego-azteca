@@ -3,7 +3,7 @@ import csv
 import dateparser
 # MX US EU
 
-NAME_OF_SELF = "format_csvs.exe"
+NAME_OF_SELF = "format_csvs.py"
 
 ABREVIACION_REGION_MEXICO = 'MX'
 ABREVIACION_REGION_EUA = 'US'
@@ -46,8 +46,12 @@ INDEX_SALE_AFTER_TAX_FR_ES_IT_AL = 26
 
 INDEX_SALE_AFTER_TAX_MEX_USA = 28
 
-def formatDate(dateData):
-    date = dateparser.parse(dateData)
+def formatDate(dateData, suffixFile):
+    date = ''
+    if suffixFile == IDENTIFICADOR_ALEMANIA:
+        date = dateparser.parse(dateData, date_formats=['%d.%m.%Y %H:%M:%S %Z'])
+    else:
+        date = dateparser.parse(dateData)
     year = str(date.year)
     if len(str(date.day)) == 1:
         day = '0' + str(date.day)
@@ -59,6 +63,8 @@ def formatDate(dateData):
         month = str(date.month)
     formattedDate = month + '/' + day + '/' + year
     return formattedDate
+
+
 
 def formatSaleEurope(saleData):
     formattedSaleData = ''
@@ -119,7 +125,7 @@ def formatColumns(fileName):
                         saleBeforeTax = fileContents[rowIndex][INDEX_SALE_BEFORE_TAX_FR_ES_IT_MEX_AL_USA]
                         saleAfterTax = fileContents[rowIndex][INDEX_SALE_AFTER_TAX_MEX_USA]
 
-                    fecha = formatDate(fileContents[rowIndex][INDEX_FECHA])
+                    fecha = formatDate(fileContents[rowIndex][INDEX_FECHA], suffixFile)
                     row.append(identificador)
                     row.append(fecha)
                     row.append(fileContents[rowIndex][INDEX_TIPO_MOVIMIENTO])
